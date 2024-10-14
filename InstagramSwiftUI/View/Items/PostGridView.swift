@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct PostGridView: View {
+    private let items = [GridItem(), GridItem(), GridItem()]
+    private let width = UIScreen.main.bounds.width / 3
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        LazyVGrid(columns: items, spacing: 2, content: {
+            ForEach(0...10, id: \.self) { _ in
+                NavigationLink (destination: FeedView()){
+                    Image("panda")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: width, height: width)
+                    .clipped()
+                }
+            }
+            
+        })
     }
 }
 

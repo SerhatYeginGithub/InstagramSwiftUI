@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct SearchView: View {
+    @State private var searchText = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            ScrollView {
+                ZStack {
+                    if searchText.isEmpty {
+                        PostGridView()
+                    }
+                    else {
+                        UserListView()
+                    }
+                    
+                }
+            }
+            .searchable(text: $searchText, prompt: "Search for a user")
+            .navigationTitle("Explore")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+        
     }
 }
 
