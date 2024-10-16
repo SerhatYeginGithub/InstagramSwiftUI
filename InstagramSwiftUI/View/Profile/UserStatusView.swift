@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct UserStatusView: View {
+    let value: Int
+    let title: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack(alignment: .center, spacing: 2){
+            Text("\(value)")
+                .font(.system(size: 15, weight: .semibold))
+                .lineLimit(nil)
+                .frame(width: 60)
+                .multilineTextAlignment(.center)
+            Text(title)
+                .font(.system(size: 15, weight: .medium))
+        }
     }
 }
 
+
 #Preview {
-    UserStatusView()
+    UserStatusView(value: 12, title: "Followers")
 }
+

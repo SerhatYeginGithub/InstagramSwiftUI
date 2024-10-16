@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    
+    let user: User
     @State private var selectedIndex = 0
     var body: some View {
         
@@ -25,7 +25,7 @@ struct MainTabView: View {
             NotificationsView()
                 .tabItem { Image.heart }
                 .tag(3)
-            ProfileView()
+            ProfileView(user: user)
                 .tabItem { Image.person }
                 .tag(4)
         }
@@ -35,7 +35,4 @@ struct MainTabView: View {
 }
 
 
-#Preview {
-    MainTabView()
-}
-
+//documents.compactMap({ try? $0.data(as: User.self)})

@@ -6,13 +6,52 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileHeaderView: View {
+    let user: User
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading){
+            HStack {
+                KFImage(URL(string: user.profileImageUrl))
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 80, height: 80)
+                    .clipShape(Circle())
+                    .padding(.leading, 8)
+                Spacer()
+                HStack(spacing: 16){
+                    UserStatusView(value: 12, title: "Post")
+                    UserStatusView(value: 13, title: "Followers")
+                    UserStatusView(value: 14, title: "Following")
+                }
+                Spacer()
+                
+            }
+            userInfo
+            ProfileActionButtonView(isCurrentUser: user.isCurrentUser)
+        }
     }
 }
 
-#Preview {
-    ProfileHeaderView()
+//#Preview {
+//    ProfileHeaderView()
+//}
+
+private extension ProfileHeaderView {
+
+    @ViewBuilder
+    var userInfo: some View {
+        Text(user.username)
+            .font(.system(size: 15, weight: .semibold))
+            .padding(.leading)
+            .padding(.top, 2)
+        
+        Text(user.fullname)
+            .font(.system(size: 15))
+            .padding(.leading)
+            .padding(.top, 1)
+    }
+    
 }
+

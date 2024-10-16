@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct ProfileView: View {
+    let user: User
     var body: some View {
-        Text("Profile")
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 32){
+                    ProfileHeaderView(user: user)
+                    PostGridView()
+                }
+                .padding(.top)
+            }
+           
+            
+        }
     }
 }
 
-#Preview {
-    ProfileView()
-}
+//#Preview {
+//    ProfileView()
+//}
+
+

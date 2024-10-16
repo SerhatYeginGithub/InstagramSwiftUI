@@ -21,10 +21,22 @@ struct FeedView: View {
             }
             .navigationTitle("Home")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(trailing: logOutButton)
         }
     }
 }
 
 #Preview {
     FeedView()
+}
+private extension FeedView {
+    
+    var logOutButton: some View {
+        Button("Log out") {
+            AuthViewModel.shared.signOut()
+        }
+        .foregroundColor(Color(.label))
+        .fontWeight(.semibold)
+    }
+
 }

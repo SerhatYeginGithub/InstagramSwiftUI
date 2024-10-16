@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct InstagramSwiftUIApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            ContentView().environmentObject(AuthViewModel.shared)
         }
     }
 }
+
