@@ -23,6 +23,8 @@
 		732BA8582CBD4B9200960199 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732BA8572CBD4B9200960199 /* UserListView.swift */; };
 		732BA85A2CBD55D800960199 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732BA8592CBD55D800960199 /* NotificationCell.swift */; };
 		732BA85C2CBD5D3700960199 /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732BA85B2CBD5D3700960199 /* Image+Ext.swift */; };
+		7346B9782CC10F6900D520EA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346B9772CC10F6900D520EA /* ProfileViewModel.swift */; };
+		7346B97A2CC123B500D520EA /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7346B9792CC123B400D520EA /* UserService.swift */; };
 		737719C12CBFA5B8005ECE7E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 737719C02CBFA5B8005ECE7E /* GoogleService-Info.plist */; };
 		737719C42CBFA637005ECE7E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 737719C32CBFA637005ECE7E /* FirebaseAuth */; };
 		737719C62CBFA637005ECE7E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 737719C52CBFA637005ECE7E /* FirebaseFirestore */; };
@@ -63,6 +65,8 @@
 		732BA8572CBD4B9200960199 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		732BA8592CBD55D800960199 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		732BA85B2CBD5D3700960199 /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
+		7346B9772CC10F6900D520EA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		7346B9792CC123B400D520EA /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		737719C02CBFA5B8005ECE7E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		737719CA2CBFA668005ECE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		737719CF2CBFBA94005ECE7E /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				737719D12CBFC618005ECE7E /* ImageUploader.swift */,
+				7346B9792CC123B400D520EA /* UserService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 		732BA83E2CBD361D00960199 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				7346B9772CC10F6900D520EA /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -429,6 +435,7 @@
 				732BA85A2CBD55D800960199 /* NotificationCell.swift in Sources */,
 				732BA8212CBD351F00960199 /* ContentView.swift in Sources */,
 				732BA81F2CBD351F00960199 /* InstagramSwiftUIApp.swift in Sources */,
+				7346B97A2CC123B500D520EA /* UserService.swift in Sources */,
 				73B60A272CBE853A003E1931 /* ProfileHeaderView.swift in Sources */,
 				73B60A352CBEB842003E1931 /* CustomTextField.swift in Sources */,
 				732BA8402CBD370000960199 /* MainTabView.swift in Sources */,
@@ -440,6 +447,7 @@
 				737719D62CC004C7005ECE7E /* User.swift in Sources */,
 				73B60A292CBE86E5003E1931 /* UserStatusView.swift in Sources */,
 				737719D02CBFBA94005ECE7E /* AuthViewModel.swift in Sources */,
+				7346B9782CC10F6900D520EA /* ProfileViewModel.swift in Sources */,
 				73B60A2F2CBEB635003E1931 /* LoginView.swift in Sources */,
 				73B60A382CBECC3D003E1931 /* CustomSecureTextField.swift in Sources */,
 				732BA8562CBD4B8A00960199 /* UserCell.swift in Sources */,

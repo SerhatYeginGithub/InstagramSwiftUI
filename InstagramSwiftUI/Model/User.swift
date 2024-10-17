@@ -14,7 +14,7 @@ struct User: Codable, Identifiable {
     let email: String
     let profileImageUrl: String
     @DocumentID var id: String?
-    
+    var isFollowed: Bool? = false
     var isCurrentUser: Bool {
         return Auth.auth().currentUser?.uid == id
     }
