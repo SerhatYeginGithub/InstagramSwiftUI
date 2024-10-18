@@ -13,8 +13,10 @@ struct Post: Identifiable, Codable {
     let ownerUid: String
     let ownerUsername: String
     let caption: String
-    let likes: Int
+    var likes: Int
     let imageUrl: String
     let timestamp: Timestamp
     let ownerImageUrl: String
+    
+    var didLike: Bool? = false
 }
