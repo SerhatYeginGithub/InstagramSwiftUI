@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct FeedView: View {
+    @StateObject private var vm = FeedViewModel()
+    
     var body: some View {
         
         NavigationStack {
             ScrollView(showsIndicators: false){
                 LazyVStack(spacing: 32){
-                    ForEach(0...20, id: \.self) { _ in
-                        FeedCell()
+                    ForEach(vm.posts) { post in
+                        
+                        FeedCell(post: post)
                     }
                 }
                 .padding(.top)
@@ -22,6 +25,9 @@ struct FeedView: View {
             .navigationTitle("Home")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: logOutButton)
+            .refreshable {
+                vm.fetchPosts()
+            }
         }
     }
 }

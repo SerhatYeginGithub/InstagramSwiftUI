@@ -15,7 +15,7 @@ struct SearchView: View {
             ScrollView {
                 ZStack {
                     if searchText.isEmpty {
-                        PostGridView()
+                        PostGridView(configType: .explore)
                     }
                     else {
                         UserListView(vm: vm)

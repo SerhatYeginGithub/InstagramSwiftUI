@@ -17,6 +17,11 @@ final class ImagePicker: ObservableObject {
     @Published var postImage: Image?
     @Published var uiImage: UIImage?
     
+    
+    /// Loads an image from a `PhotosPickerItem` and updates the view model with the loaded image.
+    /// - Parameter item: The selected `PhotosPickerItem` from the Photos library.
+    /// - This function is marked as `@MainActor` to ensure UI updates occur on the main thread.
+    /// - Uses `async/await` to load the image data and handle asynchronous tasks.
     @MainActor
     func loadImage(fromItem item : PhotosPickerItem?) async {
         guard let item = item else {return}

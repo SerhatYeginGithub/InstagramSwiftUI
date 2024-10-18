@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct UploadPostView: View {
-
+    
     @State private var imagePickerPresented = false
     @State private var caption = ""
     @StateObject private var imagePicker = ImagePicker()
+    @StateObject private var vm = UploadViewModel()
     
     var body: some View {
         NavigationStack {
@@ -19,7 +20,7 @@ struct UploadPostView: View {
                 if imagePicker.postImage == nil {
                     plusPhotoButton
                 } else {
-                   postProcessView
+                    postProcessView
                 }
                 Spacer()
             }
@@ -28,7 +29,7 @@ struct UploadPostView: View {
             .navigationBarItems(trailing: cancelButton)
         }
         .photosPicker(isPresented: $imagePickerPresented, selection: $imagePicker.selectedImage)
-       
+        
     }
 }
 
@@ -52,21 +53,29 @@ private extension UploadPostView {
         HStack(alignment: .top){
             if let image = imagePicker.postImage {
                 image
-                .resizable()
-                .scaledToFill()
-                .frame(width: 96, height: 96)
-                .clipped()
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 96, height: 96)
+                    .clipped()
                 TextField("Enter your caption...",text: $caption,axis: .vertical)
             }
         }.padding()
         
         shareButton
-      
-        .padding()
+        
+            .padding()
     }
     
     var shareButton: some View {
-        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+        Button(action: {
+            vm.uploadPost(caption: caption, image: imagePicker.uiImage) { success in
+                if success {
+                    clear()
+                }
+               
+            }
+            
+        }, label: {
             Text("Share")
                 .font(.system(size: 16, weight: .semibold))
                 .frame(width: 360, height: 45)
@@ -78,11 +87,17 @@ private extension UploadPostView {
     
     var cancelButton: some View {
         Button("Cancel") {
-            imagePicker.postImage = nil
-            imagePicker.selectedImage = nil
+            clear()
         }
-            .fontWeight(.semibold)
-            .disabled(imagePicker.postImage == nil ? true : false)
+        .fontWeight(.semibold)
+        .disabled(imagePicker.postImage == nil ? true : false)
+    }
+    
+    func clear() {
+        caption = ""
+        imagePicker.uiImage = nil
+        imagePicker.postImage = nil
+        imagePicker.selectedImage = nil
     }
 }
 

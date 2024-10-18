@@ -7,42 +7,54 @@
 
 import Foundation
 
+@MainActor
 final class ProfileViewModel: ObservableObject {
     @Published var user: User
     
     init(user: User) {
         self.user = user
-        checkIfUserisFollowed()
-    }
-    
-    func follow() {
-        guard let uid = user.id else { return }
-        UserService.shared.follow(uid: uid) { [weak self] error in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            self?.user.isFollowed = true
+        Task {
+            await checkIfUserisFollowed()
         }
     }
     
-    func unfollow() {
+    /// Follows the user asynchronously.
+    /// Updates the `isFollowed` property of the user upon success.
+    func follow() async {
         guard let uid = user.id else { return }
-        UserService.shared.unfollow(uid: uid) { [weak self] error in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            self?.user.isFollowed = false 
+        
+        do {
+            try await UserService.shared.follow(uid: uid)
+            user.isFollowed = true
+        } catch {
+            print(error.localizedDescription)
         }
     }
     
-    func checkIfUserisFollowed() {
+    /// Unfollows the user asynchronously.
+    /// Updates the `isFollowed` property of the user upon success.
+    func unfollow() async {
+        guard let uid = user.id else { return }
+        
+        do {
+            try await UserService.shared.unfollow(uid: uid)
+            user.isFollowed = false
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    /// Checks if the user is followed asynchronously.
+    /// Updates the `isFollowed` property of the user if applicable.
+    func checkIfUserisFollowed() async {
         guard !user.isCurrentUser else { return }
         guard let uid = user.id else { return }
         
-        UserService.shared.checkIfUserIsFollowed(uid: uid) { [weak self] isFollowed in
-            self?.user.isFollowed = isFollowed
+        do {
+            let isFollowed = try await UserService.shared.checkIfUserIsFollowed(uid: uid)
+            user.isFollowed = isFollowed
+        } catch {
+            print(error.localizedDescription)
         }
     }
 }

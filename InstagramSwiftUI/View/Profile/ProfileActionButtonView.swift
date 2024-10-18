@@ -31,7 +31,7 @@ struct ProfileActionButtonView: View {
         } else {
             HStack {
                 Spacer()
-                Button(action: {isFollowed ? vm.unfollow() : vm.follow() }, label: {
+                Button(action: {Task {await isFollowed ? vm.unfollow() : vm.follow() } }, label: {
                     Text(isFollowed ? "Following" : "Follow")
                         .font(.system(size: 15, weight: .semibold))
                         .foregroundColor(isFollowed ? Color(.label) : .white)
