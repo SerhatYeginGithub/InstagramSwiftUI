@@ -26,7 +26,7 @@ struct SearchView: View {
             .searchable(text: $searchText, prompt: "Search for a user")
             .navigationTitle("Explore")
             .navigationBarTitleDisplayMode(.inline)
-            .onChange(of: searchText) { oldValue, newValue in
+            .onChange(of: searchText) {  newValue in
                 if !newValue.isEmpty, newValue.count >= 3 {
                     vm.fetchFilteredUsers(query: newValue)
                 } else {

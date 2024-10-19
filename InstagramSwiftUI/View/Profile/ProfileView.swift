@@ -17,6 +17,7 @@ struct ProfileView: View {
     }
     
     var body: some View {
+        
         NavigationStack {
             ScrollView {
                 VStack(spacing: 32){
@@ -26,6 +27,7 @@ struct ProfileView: View {
                 .padding(.top)
             }
         }
+        
     }
 }
 

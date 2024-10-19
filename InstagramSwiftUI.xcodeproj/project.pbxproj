@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730BDA2C2CC3AAA800F439B8 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BDA2B2CC3AAA800F439B8 /* CommentsView.swift */; };
+		730BDA2E2CC3AAAE00F439B8 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BDA2D2CC3AAAE00F439B8 /* CommentCell.swift */; };
+		730BDA312CC3AAC900F439B8 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BDA302CC3AAC900F439B8 /* CommentViewModel.swift */; };
+		730BDA332CC3B6A100F439B8 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BDA322CC3B6A100F439B8 /* Comment.swift */; };
+		730BDA352CC40FFA00F439B8 /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730BDA342CC40FFA00F439B8 /* UIApplication+Ext.swift */; };
 		732BA81F2CBD351F00960199 /* InstagramSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732BA81E2CBD351F00960199 /* InstagramSwiftUIApp.swift */; };
 		732BA8212CBD351F00960199 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732BA8202CBD351F00960199 /* ContentView.swift */; };
 		732BA8232CBD352000960199 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 732BA8222CBD352000960199 /* Assets.xcassets */; };
@@ -53,6 +58,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		730BDA2B2CC3AAA800F439B8 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
+		730BDA2D2CC3AAAE00F439B8 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		730BDA302CC3AAC900F439B8 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
+		730BDA322CC3B6A100F439B8 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		730BDA342CC40FFA00F439B8 /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
 		732BA81B2CBD351F00960199 /* InstagramSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		732BA81E2CBD351F00960199 /* InstagramSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramSwiftUIApp.swift; sourceTree = "<group>"; };
 		732BA8202CBD351F00960199 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		730BDA2F2CC3AAB900F439B8 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				730BDA302CC3AAC900F439B8 /* CommentViewModel.swift */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
 		732BA8122CBD351F00960199 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +190,7 @@
 		732BA82F2CBD354C00960199 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				730BDA2F2CC3AAB900F439B8 /* Comments */,
 				73500EA12CC29F44001AAAE0 /* PostGrid */,
 				73DAD0942CC17A1B006E68B7 /* Upload */,
 				737719D72CC0077E005ECE7E /* Search */,
@@ -204,6 +223,7 @@
 			children = (
 				737719D52CC004C7005ECE7E /* User.swift */,
 				73DAD0972CC18793006E68B7 /* Post.swift */,
+				730BDA322CC3B6A100F439B8 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,6 +268,8 @@
 		732BA8362CBD35AC00960199 /* Comments */ = {
 			isa = PBXGroup;
 			children = (
+				730BDA2B2CC3AAA800F439B8 /* CommentsView.swift */,
+				730BDA2D2CC3AAAE00F439B8 /* CommentCell.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -326,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				732BA85B2CBD5D3700960199 /* Image+Ext.swift */,
+				730BDA342CC40FFA00F439B8 /* UIApplication+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -456,6 +479,7 @@
 				73500EA32CC29F52001AAAE0 /* PostGridViewModel.swift in Sources */,
 				737719CB2CBFA668005ECE7E /* AppDelegate.swift in Sources */,
 				73500EA52CC2ACDC001AAAE0 /* FeedCellViewModel.swift in Sources */,
+				730BDA312CC3AAC900F439B8 /* CommentViewModel.swift in Sources */,
 				73DAD0962CC17A25006E68B7 /* UploadViewModel.swift in Sources */,
 				732BA84A2CBD375700960199 /* ProfileView.swift in Sources */,
 				73B60A312CBEB63B003E1931 /* RegisterView.swift in Sources */,
@@ -470,8 +494,10 @@
 				73DAD0982CC18793006E68B7 /* Post.swift in Sources */,
 				732BA8212CBD351F00960199 /* ContentView.swift in Sources */,
 				732BA81F2CBD351F00960199 /* InstagramSwiftUIApp.swift in Sources */,
+				730BDA352CC40FFA00F439B8 /* UIApplication+Ext.swift in Sources */,
 				7346B97A2CC123B500D520EA /* UserService.swift in Sources */,
 				73B60A272CBE853A003E1931 /* ProfileHeaderView.swift in Sources */,
+				730BDA2E2CC3AAAE00F439B8 /* CommentCell.swift in Sources */,
 				73B60A352CBEB842003E1931 /* CustomTextField.swift in Sources */,
 				73DAD09A2CC18899006E68B7 /* FeedViewModel.swift in Sources */,
 				732BA8402CBD370000960199 /* MainTabView.swift in Sources */,
@@ -484,8 +510,10 @@
 				73B60A292CBE86E5003E1931 /* UserStatusView.swift in Sources */,
 				737719D02CBFBA94005ECE7E /* AuthViewModel.swift in Sources */,
 				7346B9782CC10F6900D520EA /* ProfileViewModel.swift in Sources */,
+				730BDA2C2CC3AAA800F439B8 /* CommentsView.swift in Sources */,
 				73B60A2F2CBEB635003E1931 /* LoginView.swift in Sources */,
 				73B60A382CBECC3D003E1931 /* CustomSecureTextField.swift in Sources */,
+				730BDA332CC3B6A100F439B8 /* Comment.swift in Sources */,
 				732BA8562CBD4B8A00960199 /* UserCell.swift in Sources */,
 				732BA84F2CBD3A6C00960199 /* FeedCell.swift in Sources */,
 				737719D42CBFFF93005ECE7E /* Constants.swift in Sources */,
@@ -630,6 +658,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -637,9 +666,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.syegin.InstagramSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -659,6 +692,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -666,9 +700,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.syegin.InstagramSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -63,7 +63,7 @@ private extension FeedCell {
                     .foregroundColor(didLike ? .red : .black)
             })
             
-            Button(action: {}, label: { Image(systemName: "bubble.right")
+            NavigationLink(destination: CommentsView(post: vm.post), label: { Image(systemName: "bubble.right")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 20, height: 20)
