@@ -17,9 +17,10 @@ final class FeedCellViewModel: ObservableObject {
         checkIfUserLikedPost()
     }
     
-    /// Likes the post by adding entries to both "post-likes" and "user-likes" collections in Firestore.
-    /// - This method increments the `likes` count on the post and sets `didLike` to `true`.
     
+    /// Likes the post by adding an entry to both the "post-likes" collection of the post and
+    /// the "user-likes" collection of the current user in Firestore.
+    /// - This method increments the `likes` count on the post and sets `didLike` to `true`.
     func like() {
         guard let uid = AuthViewModel.shared.userSession?.uid else { return }
         guard let postId = post.id else { return }
@@ -32,6 +33,8 @@ final class FeedCellViewModel: ObservableObject {
                         if let _ = error { return }
                         COLLECTION_POSTS.document(postId).updateData(["likes" : self.post.likes + 1]) { error in
                             if let _ = error { return }
+                            NotificationsViewModel.uploadNotifications(toUid: self.post.ownerUid, type: .like, post: self.post)
+                            
                             self.post.didLike = true
                             self.post.likes += 1
                         }
@@ -41,7 +44,7 @@ final class FeedCellViewModel: ObservableObject {
             }
     }
     
-    
+
     /// Unlikes the post by removing entries from both "post-likes" and "user-likes" collections in Firestore.
     /// - This method decrements the `likes` count on the post and sets `didLike` to `false`.
     func unlike() {

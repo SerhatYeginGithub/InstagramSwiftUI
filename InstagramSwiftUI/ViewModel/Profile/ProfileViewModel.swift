@@ -11,6 +11,8 @@ import Foundation
 final class ProfileViewModel: ObservableObject {
     @Published var user: User
     
+    /// Initializes the view model with the provided user and automatically checks if the user is followed.
+    /// - Parameter user: The user whose profile is being viewed or managed.
     init(user: User) {
         self.user = user
         Task {
@@ -18,21 +20,24 @@ final class ProfileViewModel: ObservableObject {
         }
     }
     
-    /// Follows the user asynchronously.
-    /// Updates the `isFollowed` property of the user upon success.
+    
+    /// Follows the user asynchronously by sending a follow request to the backend.
+    /// Upon success, the user's `isFollowed` property is set to `true`, and a follow notification is uploaded.
     func follow() async {
         guard let uid = user.id else { return }
         
         do {
             try await UserService.shared.follow(uid: uid)
+            NotificationsViewModel.uploadNotifications(toUid: uid, type: .follow)
             user.isFollowed = true
         } catch {
             print(error.localizedDescription)
         }
     }
     
-    /// Unfollows the user asynchronously.
-    /// Updates the `isFollowed` property of the user upon success.
+    
+    /// Unfollows the user asynchronously by sending an unfollow request to the backend.
+    /// Upon success, the user's `isFollowed` property is set to `false`.
     func unfollow() async {
         guard let uid = user.id else { return }
         
@@ -44,8 +49,9 @@ final class ProfileViewModel: ObservableObject {
         }
     }
     
-    /// Checks if the user is followed asynchronously.
-    /// Updates the `isFollowed` property of the user if applicable.
+    
+    /// Checks asynchronously if the user is currently followed by the logged-in user.
+    /// Updates the `isFollowed` property of the user based on the result.
     func checkIfUserisFollowed() async {
         guard !user.isCurrentUser else { return }
         guard let uid = user.id else { return }

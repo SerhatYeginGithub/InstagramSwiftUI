@@ -23,7 +23,9 @@ final class CommentViewModel: ObservableObject {
     }
     
     
-    /// Uploads a new comment to the Firestore for the current post.
+    /// Uploads a new comment to Firestore for the current post. The comment includes user information,
+    /// the post owner UID, and the comment text itself. If the upload is successful, a notification is
+    /// sent to the post owner, and the comment input field is reset.
     /// - Parameter commentText: The text of the comment to be uploaded.
     func uploadComment(commentText: String) {
         guard let user = AuthViewModel.shared.currentUser else { return }
@@ -38,13 +40,15 @@ final class CommentViewModel: ObservableObject {
         
         COLLECTION_POSTS.document(postId).collection("post-comments").addDocument(data: data) { error in
             if let _ = error { return }
+            NotificationsViewModel.uploadNotifications(toUid: self.post.ownerUid, type: .comment, post: self.post)
             self.commentText = ""
             
         }
     }
     
     
-    /// Fetches comments for the current post from Firestore and updates the `comments` array.
+    /// Fetches the latest comments for the current post from Firestore. The comments are ordered by their
+    /// timestamp in descending order (most recent first) and limited to 30 comments.
     func fetchComments() {
         guard let postId = post.id else { return }
         

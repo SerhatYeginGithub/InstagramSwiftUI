@@ -102,7 +102,7 @@ final class AuthViewModel: ObservableObject {
     /// - Updates the `currentUser` with the data fetched from Firestore.
     func fetchUser() {
         guard let uid = userSession?.uid else { return }
-        COLLECTION_USERS.document(uid).getDocument { snapshot, error in
+         COLLECTION_USERS.document(uid).getDocument { snapshot, error in
             guard let user = try? snapshot?.data(as: User.self) else { return }
             
             self.currentUser = user
