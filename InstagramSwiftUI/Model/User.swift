@@ -7,6 +7,7 @@
 
 import FirebaseFirestore
 import FirebaseAuth
+
 struct User: Codable, Identifiable {
     
     let username: String
@@ -18,4 +19,11 @@ struct User: Codable, Identifiable {
     var isCurrentUser: Bool {
         return Auth.auth().currentUser?.uid == id
     }
+    var userStatus: UserStatus?
+}
+
+struct UserStatus:  Codable {
+    var following: Int
+    var posts: Int
+    var followers: Int
 }

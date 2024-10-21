@@ -14,7 +14,7 @@ struct UserListView: View {
         ScrollView {
             LazyVStack(){
                 ForEach(vm.filteredUsers) { user in
-                    NavigationLink(destination: ProfileView(user: user)) {
+                    NavigationLink(destination: LazyView(build: ProfileView(user: user))) {
                         UserCell(user: user)
                             .padding(.leading)
                     }

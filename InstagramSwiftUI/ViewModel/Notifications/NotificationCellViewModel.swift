@@ -11,6 +11,14 @@ import Foundation
 final class NotificationCellViewModel: ObservableObject {
     @Published var notification: Notification
     
+    var timestampString: String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.second, .minute, .hour, .day, .weekOfMonth]
+        formatter.maximumUnitCount = 1
+        formatter.unitsStyle = .abbreviated
+        return formatter.string(from: notification.timestamp.dateValue(), to: Date()) ?? ""
+    }
+    
     /// Initializes the view model with a notification and triggers tasks to check user follow status,
     /// fetch post details related to the notification, and fetch the user details related to the notification.
     init(notification: Notification)  {
@@ -21,6 +29,7 @@ final class NotificationCellViewModel: ObservableObject {
             fetchNotificationUser()
         }
     }
+    
     
     
     /// Follows the user who triggered the notification. Updates the follow status
@@ -37,8 +46,7 @@ final class NotificationCellViewModel: ObservableObject {
         }
     }
     
-    // Unfollows the user who triggered the notification. Updates the follow status.
-    
+    /// Unfollows the user who triggered the notification. Updates the follow status.
     func unfollow() async {
         
         

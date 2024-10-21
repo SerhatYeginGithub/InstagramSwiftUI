@@ -98,11 +98,11 @@ private extension FeedCell {
             
         }
         .padding(.horizontal, 8)
-        Text("\(vm.post.timestamp)")
+        Text(vm.timestampString)
             .font(.system(size: 14))
             .foregroundColor(.gray)
             .padding(.leading, 8)
-            .padding(.top, 4)
+            .padding(.top, 2)
     }
     
 }

@@ -35,6 +35,7 @@
 		7359DBEC2CC4F30A00784BFE /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7359DBEB2CC4F30A00784BFE /* Notification.swift */; };
 		7359DBEE2CC4F41D00784BFE /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7359DBED2CC4F41D00784BFE /* NotificationsViewModel.swift */; };
 		7359DBF02CC50E0B00784BFE /* NotificationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7359DBEF2CC50E0B00784BFE /* NotificationCellViewModel.swift */; };
+		7359DBF22CC52BD200784BFE /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7359DBF12CC52BD200784BFE /* LazyView.swift */; };
 		737719C12CBFA5B8005ECE7E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 737719C02CBFA5B8005ECE7E /* GoogleService-Info.plist */; };
 		737719C42CBFA637005ECE7E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 737719C32CBFA637005ECE7E /* FirebaseAuth */; };
 		737719C62CBFA637005ECE7E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 737719C52CBFA637005ECE7E /* FirebaseFirestore */; };
@@ -90,6 +91,7 @@
 		7359DBEB2CC4F30A00784BFE /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		7359DBED2CC4F41D00784BFE /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		7359DBEF2CC50E0B00784BFE /* NotificationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCellViewModel.swift; sourceTree = "<group>"; };
+		7359DBF12CC52BD200784BFE /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		737719C02CBFA5B8005ECE7E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		737719CA2CBFA668005ECE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		737719CF2CBFBA94005ECE7E /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				73B60A2C2CBE9E17003E1931 /* ImagePicker.swift */,
 				737719D32CBFFF93005ECE7E /* Constants.swift */,
+				7359DBF12CC52BD200784BFE /* LazyView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				732BA8512CBD47DC00960199 /* PostGridView.swift in Sources */,
 				732BA85C2CBD5D3700960199 /* Image+Ext.swift in Sources */,
 				737719D62CC004C7005ECE7E /* User.swift in Sources */,
+				7359DBF22CC52BD200784BFE /* LazyView.swift in Sources */,
 				73B60A292CBE86E5003E1931 /* UserStatusView.swift in Sources */,
 				737719D02CBFBA94005ECE7E /* AuthViewModel.swift in Sources */,
 				7346B9782CC10F6900D520EA /* ProfileViewModel.swift in Sources */,

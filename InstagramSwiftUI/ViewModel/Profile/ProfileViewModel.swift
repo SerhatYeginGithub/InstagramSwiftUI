@@ -17,6 +17,7 @@ final class ProfileViewModel: ObservableObject {
         self.user = user
         Task {
             await checkIfUserisFollowed()
+            fetchUserStatus()
         }
     }
     
@@ -61,6 +62,26 @@ final class ProfileViewModel: ObservableObject {
             user.isFollowed = isFollowed
         } catch {
             print(error.localizedDescription)
+        }
+    }
+    
+    func fetchUserStatus() {
+        guard let uid = user.id else { return }
+        
+        COLLECTION_FOLLOWING.document(uid).collection(COLLECTION_USER_FOLLOWING).getDocuments { snapshot, error in
+            if let _ = error { return }
+            guard let following = snapshot?.documents.count else { return }
+            
+            COLLECTION_FOLLOWERS.document(uid).collection(COLLECTION_USER_FOLLOWERS).getDocuments { snapshot, error in
+                if let _ = error { return }
+                guard let followers = snapshot?.documents.count else { return }
+                
+                COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid).getDocuments { snapshot, error in
+                    if let _ = error { return }
+                    guard let post = snapshot?.documents.count else { return }
+                    self.user.userStatus = UserStatus(following: following, posts: post, followers: followers)
+                }
+            }
         }
     }
 }

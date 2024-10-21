@@ -79,6 +79,8 @@ private extension NotificationCell {
         +
         Text(" " + vm.notification.type.notificationMessage)
             .font(.system(size: 15))
+        +
+        Text(" " + vm.timestampString).foregroundColor(.gray).font(.system(size: 12))
         
     }
     

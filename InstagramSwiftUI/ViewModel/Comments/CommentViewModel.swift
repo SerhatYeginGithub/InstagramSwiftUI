@@ -60,8 +60,21 @@ final class CommentViewModel: ObservableObject {
             if let _ = error { return }
             
             guard let addedDocs = snapshot?.documentChanges.filter({$0.type == .added}) else { return }
-            self.comments = addedDocs.compactMap({ try? $0.document.data(as: Comment.self)})
-            
+            let comment = addedDocs.compactMap({ try? $0.document.data(as: Comment.self)})
+            self.comments.append(contentsOf: comment)
         }
+    }
+    
+    
+    /// Converts the comment's timestamp to a user-friendly, abbreviated time format.
+    /// The time is displayed relative to the current date, using the most significant unit (seconds, minutes, hours, etc.).
+    /// - Parameter comment: The comment object containing the timestamp.
+    /// - Returns: A string representing the time elapsed since the comment was posted, or an empty string if formatting fails.
+    func timestampString(comment: Comment) -> String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.second, .minute, .hour, .day, .weekOfMonth]
+        formatter.maximumUnitCount = 1
+        formatter.unitsStyle = .abbreviated
+        return formatter.string(from: comment.timestamp.dateValue(), to: Date()) ?? ""
     }
 }

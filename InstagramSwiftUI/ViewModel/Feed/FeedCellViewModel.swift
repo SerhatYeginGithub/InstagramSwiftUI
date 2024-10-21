@@ -10,6 +10,15 @@ import Foundation
 final class FeedCellViewModel: ObservableObject {
     @Published var post: Post
     
+    var timestampString: String {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.second, .minute, .hour, .day, .weekOfMonth]
+        formatter.maximumUnitCount = 1
+        formatter.unitsStyle = .abbreviated
+        return formatter.string(from: post.timestamp.dateValue(), to: Date()) ?? ""
+    }
+    
+    
     /// Initializes the view model with a post and checks if the user has liked the post.
     /// - Parameter post: The `Post` object that this view model will manage.
     init(post: Post) {

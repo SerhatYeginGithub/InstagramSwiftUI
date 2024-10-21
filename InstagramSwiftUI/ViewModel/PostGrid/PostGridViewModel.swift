@@ -49,6 +49,7 @@ final class PostGridViewModel: ObservableObject {
             guard let documents = snapshot?.documents else { return }
             
             self.posts = documents.compactMap({ try? $0.data(as: Post.self) })
+            self.posts = self.posts.sorted(by: { $0.likes > $1.likes })
         }
     }
     
@@ -63,6 +64,7 @@ final class PostGridViewModel: ObservableObject {
             guard let documents = snapshot?.documents else { return }
             
             self.posts = documents.compactMap({ try? $0.data(as: Post.self) })
+            self.posts = self.posts.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue() })
         }
     }
 }

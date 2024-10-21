@@ -11,7 +11,7 @@ import Kingfisher
 
 struct CommentCell: View {
     let comment: Comment
-    
+    let time: String
     var body: some View {
         HStack {
             KFImage(URL(string: comment.profileImageUrl))
@@ -24,14 +24,14 @@ struct CommentCell: View {
             +
             Text(" " + comment.commentText)
                 .font(.system(size: 14))
-            
-            Text("\(comment.timestamp)")
+            Spacer()
+            Text(time)
                 .foregroundColor(.gray)
                 .font(.system(size: 12))
-                .padding(.trailing)
+             
             
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 5)
     }
 }
 
